@@ -28,7 +28,8 @@ class CPX400DPDriver(SCPI):
         if interface == 'lan':
             SCPI.__init__(self, 'lan', tcp_port=tcp_port, hostname=hostname)
         if interface == 'serial':
-            SCPI.__init__(self, 'serial', device=device)
+            SCPI.__init__(self, 'serial', device=device, line_ending='\n')
+            self.hostname = device
         if not (output == 1 or output == 2):
             raise InterfaceOutOfBoundsError(output)
         else:
