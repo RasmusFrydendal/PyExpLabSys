@@ -28,7 +28,7 @@ python2_and_3(__file__)
 
 # Database constants
 #: Hostname of the database server
-HOSTNAME = 'servcinf-sql'
+HOSTNAME = '192.168.1.114'
 #: Database name
 DATABASE = 'cinfdata'
 
