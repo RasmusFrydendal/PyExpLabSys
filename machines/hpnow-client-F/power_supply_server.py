@@ -217,8 +217,8 @@ class CPXServer(object):
 def main():
     """Main function"""
     devices = {
-        'A': '/dev/serial/by-id/',
-        'B': '/dev/serial/by-id/',
+        'A': '/dev/serial/by-id/usb-TTi_CPX_Series_PSU_477252-if00',
+        'B': '/dev/serial/by-id/usb-TTi_CPX_Series_PSU_477249-if00',
     }
     cpx_server = CPXServer(devices=devices)
     cpx_server.dps.start()
