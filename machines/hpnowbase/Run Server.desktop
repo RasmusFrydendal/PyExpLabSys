@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Run Server
+Comment=
+Exec=/home/hpnow/PyExpLabSys/machines/???/run_server.bash
+Icon=
+Path=/home/hpnow/PyExpLabSys/machines/???
+Terminal=true
+StartupNotify=false

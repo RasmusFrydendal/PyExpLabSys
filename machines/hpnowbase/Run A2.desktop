@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Run A2
+Comment=
+Exec=/home/hpnow/PyExpLabSys/machines/???/run_A2.bash
+Icon=
+Path=/home/hpnow/PyExpLabSys/machines/???
+Terminal=true
+StartupNotify=false
+Name[en_US]=Run A2
