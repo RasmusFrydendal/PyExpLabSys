@@ -1,0 +1,9 @@
+1. Edit the steps file for the power supply channel that you want to use.
+   E.g: steps_A1.yaml for channel A1
+
+   Make sure to fill in an appropriate comment and adjust the steps
+
+2. Click the shortcut for the relevant channel on the desktop
+
+3. In the GUI program, check that the settings and the steps are correct.
+   Write start and press enter.
