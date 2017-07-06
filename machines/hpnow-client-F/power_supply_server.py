@@ -54,7 +54,9 @@ with open(LOCK_FILE, 'w') as file_:
     pass
 
 
-LOG = get_logger('H2O2 CPX Serv', level='debug', file_log=True, file_name='server.log',
+LOG = get_logger('H2O2 CPX Serv', level='debug', file_log=True,
+                 file_name='server.log',
+                 email_on_warnings=False, email_on_errors=False,
                  file_backup_count=1, file_max_bytes=1048576)
 STOP_SERVER = False
 
@@ -99,7 +101,24 @@ class CPXServer(object):
 
         # Test connection
         for cpx_name, cpx in self.cpxs.items():
-            print(cpx.read_actual_voltage())
+            for _ in range(3):
+                try:
+                    print('Connect to CPS', cpx.read_actual_voltage())
+                    raise TypeError('ddd')
+                    break
+                except TypeError:
+                    message = "Connection error, waiting 3 sec and try again"
+                    print(message)
+                    LOG.error(message)
+                    sleep(3)
+            else:
+                message = (
+                    'Unable to connect to power supplies\n'
+                    'Swich them off and on and wait 3min and try again'
+                )
+                LOG.critical(message)
+                raise RuntimeError(message)
+                
             if cpx.read_actual_voltage() < -999:
                 error = 'Unable to connect to power supply "{}" with name "{}"'
                 raise RuntimeError(error.format(cpx, cpx_name))
@@ -204,6 +223,7 @@ def main():
     }
     cpx_server = CPXServer(devices=devices)
     cpx_server.dps.start()
+    print("Server ready")
     try:
         while not STOP_SERVER:
             sleep(1)
