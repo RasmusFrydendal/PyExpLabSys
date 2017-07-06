@@ -5,7 +5,7 @@
 
 This file is part of the Voltage Current Program
 
-Copyright (C) 2012 Kenneth Nielsen and Robert Jensen
+Copyright (C) 2016-2017 Kenneth Nielsen and Robert Jensen
 
 The Voltage Current Ramp Program is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -104,7 +104,6 @@ class CPXServer(object):
             for _ in range(3):
                 try:
                     print('Connect to CPS', cpx.read_actual_voltage())
-                    raise TypeError('ddd')
                     break
                 except TypeError:
                     message = "Connection error, waiting 3 sec and try again"
